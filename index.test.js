@@ -3,6 +3,7 @@ import { rollDice } from "./index";
 import { rollFiveDice } from "./index";
 import { findFigures } from "./index";
 import { calculateRollPoints } from "./index";
+import { calculateTotalSum } from "./index";
 
 describe("Roll dice", () => {
     it("Should return between 1 and 6 included", () => {
@@ -88,5 +89,13 @@ describe("Calculate sum", () => {
         const rolls = [1, 1, 3, 5, 6];
         const points = calculateRollPoints(rolls);
         expect(points).toBe(16);
+    });
+    it("Should calculate sum of points for multiple 5 dice rolls", () => {
+        const allRolls = [
+            [1, 1, 3, 5, 6], // Chance: 16
+            [2, 2, 2, 4, 5], // Brelan: 28
+            [3, 3, 3, 3, 3] // YAMS: 50
+        ];
+        expect(calculateTotalSum(allRolls)).toBe(94);
     });
 });

@@ -91,8 +91,8 @@ export function calculateRollPoints(diceRolls) {
         "GrandeSuite": 40,
         "YAMS": 50
     };
-    const figure = findFigures(diceRolls);
-    switch (figure) {
+    const FIGURE = findFigures(diceRolls);
+    switch (FIGURE) {
         case "Brelan":
             return FIGURE_POINTS.Brelan;
         case "Carré":
@@ -107,3 +107,12 @@ export function calculateRollPoints(diceRolls) {
             return diceRolls.reduce((a, b) => a + b, 0);
     }
 }
+
+export function calculateTotalSum(multipleRolls) {
+    let totalSum = 0;
+    multipleRolls.forEach(roll => {
+        let rollPoints = calculateRollPoints(roll);
+        totalSum += rollPoints;
+    });
+    return totalSum;
+};
