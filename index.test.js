@@ -40,9 +40,14 @@ describe("Find figures", () => {
         const figure = findFigures(rolls);
         expect(figure).toBe("YAMS");
     });
-    /* it("Should find a Suite and return 'Suite'", () => {
+    it("Should find a Suite and return 'Suite' from 1 to 5", () => {
         const rolls = [1, 2, 3, 4, 5];
         const figure = findFigures(rolls);
         expect(figure).toBe("Suite");
-    }); */
+    });
+    it("Should find a Suite and return 'Suite' from 2 to 6", () => {
+        const rolls = [2, 3, 4, 5, 6];
+        const figure = findFigures(rolls);
+        expect(figure).toBe("Suite");
+    });
 });

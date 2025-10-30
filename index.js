@@ -36,13 +36,35 @@ export function findFigures(diceRolls) {
 
     let hasBrelan = false;
     let hasPair = false;
+    let hasSuite = false;
+
+    if (
+        numberCounts[0].count === 1 &&
+        numberCounts[1].count === 1 &&
+        numberCounts[2].count === 1 &&
+        numberCounts[3].count === 1 &&
+        numberCounts[4].count === 1 &&
+        numberCounts[5].count === 0
+    ) {
+        hasSuite = true;
+    }
+    if (
+        numberCounts[0].count === 0 &&
+        numberCounts[1].count === 1 &&
+        numberCounts[2].count === 1 &&
+        numberCounts[3].count === 1 &&
+        numberCounts[4].count === 1 &&
+        numberCounts[5].count === 1
+    ) {
+        hasSuite = true;
+    }
 
     numberCounts.forEach((numberCount) => {
-        if(numberCount.count === 5){
+        if (numberCount.count === 5) {
             figure = "YAMS";
-        }else if (numberCount.count === 4) {
+        } else if (numberCount.count === 4) {
             figure = "Carré";
-        }else if (numberCount.count === 3) {
+        } else if (numberCount.count === 3) {
             hasBrelan = true;
         }
         if (numberCount.count === 2) {
@@ -54,6 +76,8 @@ export function findFigures(diceRolls) {
         figure = "Full";
     } else if (hasBrelan) {
         figure = "Brelan";
+    } else if (hasSuite) {
+        figure = "Suite";
     }
 
     return figure;
