@@ -38,7 +38,9 @@ export function findFigures(diceRolls) {
     let hasPair = false;
 
     numberCounts.forEach((numberCount) => {
-        if (numberCount.count === 4) {
+        if(numberCount.count === 5){
+            figure = "YAMS";
+        }else if (numberCount.count === 4) {
             figure = "Carré";
         }else if (numberCount.count === 3) {
             hasBrelan = true;
