@@ -1,0 +1,14 @@
+{
+  "name": "cc1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "vitest": "^4.0.5"
+  }
+}
