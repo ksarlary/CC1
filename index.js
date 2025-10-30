@@ -34,6 +34,11 @@ export function findFigures(diceRolls) {
         }
     }
 
+    numberCounts.forEach((numberCount) => {
+        if (numberCount.count === 4) {
+            figure = "Carré";
+        }
+    });
 
     numberCounts.forEach((numberCount) => {
         if (numberCount.count === 3) {

@@ -25,4 +25,9 @@ describe("Find figures", () => {
         const figure = findFigures(rolls);
         expect(figure).toBe("Brelan");
     });
+    it("Should find a Carré and return 'Carré'", () => {
+        const rolls = [2, 2, 2, 2, 5];
+        const figure = findFigures(rolls);
+        expect(figure).toBe("Carré");
+    });
 });
