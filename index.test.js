@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { rollDice } from "./index";
 import { rollFiveDice } from "./index";
-import { findFIGUREs } from "./index";
+import { findFigures } from "./index";
 import { calculateRollPoints } from "./index";
-import { calculateTotalSUM } from "./index";
+import { calculateTotalSum } from "./index";
 
 describe("Roll dice", () => {
     it("Should return between 1 and 6 included", () => {
@@ -21,40 +21,40 @@ describe("Roll dice", () => {
     });
 });
 
-describe("Find figuress", () => {
+describe("Find figures", () => {
     it("Should find a Brelan and return 'Brelan'", () => {
         const ROLLS = [2, 2, 2, 4, 5];
-        const FIGURE = findFIGUREs(ROLLS);
+        const FIGURE = findFigures(ROLLS);
         expect(FIGURE).toBe("Brelan");
     });
     it("Should find a Carré and return 'Carré'", () => {
         const ROLLS = [2, 2, 2, 2, 5];
-        const FIGURE = findFIGUREs(ROLLS);
+        const FIGURE = findFigures(ROLLS);
         expect(FIGURE).toBe("Carré");
     });
     it("Should find a Full and return 'Full'", () => {
         const ROLLS = [2, 2, 2, 5, 5];
-        const FIGURE = findFIGUREs(ROLLS);
+        const FIGURE = findFigures(ROLLS);
         expect(FIGURE).toBe("Full");
     });
     it("Should find a YAMS and return 'YAMS'", () => {
         const ROLLS = [2, 2, 2, 2, 2];
-        const FIGURE = findFIGUREs(ROLLS);
+        const FIGURE = findFigures(ROLLS);
         expect(FIGURE).toBe("YAMS");
     });
     it("Should find a Suite and return 'Suite' from 1 to 5", () => {
         const ROLLS = [1, 2, 3, 4, 5];
-        const FIGURE = findFIGUREs(ROLLS);
+        const FIGURE = findFigures(ROLLS);
         expect(FIGURE).toBe("Suite");
     });
     it("Should find a Suite and return 'Suite' from 2 to 6", () => {
         const ROLLS = [2, 3, 4, 5, 6];
-        const FIGURE = findFIGUREs(ROLLS);
+        const FIGURE = findFigures(ROLLS);
         expect(FIGURE).toBe("Suite");
     });
     it("Should find a Chance and return 'Chance'", () => {
         const ROLLS = [1, 1, 3, 5, 6];
-        const FIGURE = findFIGUREs(ROLLS);
+        const FIGURE = findFigures(ROLLS);
         expect(FIGURE).toBe("Chance");
     });
 });
@@ -96,6 +96,6 @@ describe("Calculate sum", () => {
             [2, 2, 2, 4, 5], // Brelan: 28
             [3, 3, 3, 3, 3] // YAMS: 50
         ];
-        expect(calculateTotalSUM(ALL_ROLLS)).toBe(94);
+        expect(calculateTotalSum(ALL_ROLLS)).toBe(94);
     });
 });
