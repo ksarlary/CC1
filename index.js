@@ -40,16 +40,9 @@ export function findFigures(diceRolls) {
     numberCounts.forEach((numberCount) => {
         if (numberCount.count === 4) {
             figure = "Carré";
-        }
-    });
-
-    numberCounts.forEach((numberCount) => {
-        if (numberCount.count === 3) {
+        }else if (numberCount.count === 3) {
             hasBrelan = true;
         }
-    });
-
-    numberCounts.forEach((numberCount) => {
         if (numberCount.count === 2) {
             hasPair = true;
         }

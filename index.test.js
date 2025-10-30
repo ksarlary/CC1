@@ -35,4 +35,9 @@ describe("Find figures", () => {
         const figure = findFigures(rolls);
         expect(figure).toBe("Full");
     });
+    /* it("Should find a Suite and return 'Suite'", () => {
+        const rolls = [1, 2, 3, 4, 5];
+        const figure = findFigures(rolls);
+        expect(figure).toBe("Suite");
+    }); */
 });
