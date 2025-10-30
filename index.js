@@ -14,7 +14,7 @@ export function rollFiveDice() {
 }
 
 export function findFigures(diceRolls) {
-    let figure = "No Figure";
+    let figure = "Chance";
     let numberCounts = [
         { number: 1, count: 0 },
         { number: 2, count: 0 },
@@ -81,4 +81,29 @@ export function findFigures(diceRolls) {
     }
 
     return figure;
+}
+
+export function calculateRollPoints(diceRolls) {
+    const FIGURE_POINTS = {
+        "Brelan": 28,
+        "Carré": 35,
+        "Full": 30,
+        "GrandeSuite": 40,
+        "YAMS": 50
+    };
+    const figure = findFigures(diceRolls);
+    switch (figure) {
+        case "Brelan":
+            return FIGURE_POINTS.Brelan;
+        case "Carré":
+            return FIGURE_POINTS.Carré;
+        case "Full":
+            return FIGURE_POINTS.Full;
+        case "Suite":
+            return FIGURE_POINTS.GrandeSuite;
+        case "YAMS":
+            return FIGURE_POINTS.YAMS;
+        default:
+            return diceRolls.reduce((a, b) => a + b, 0);
+    }
 }

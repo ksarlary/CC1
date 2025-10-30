@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { rollDice } from "./index";
 import { rollFiveDice } from "./index";
 import { findFigures } from "./index";
+import { calculateRollPoints } from "./index";
 
 describe("Roll dice", () => {
     it("Should return between 1 and 6 included", () => {
@@ -49,5 +50,33 @@ describe("Find figures", () => {
         const rolls = [2, 3, 4, 5, 6];
         const figure = findFigures(rolls);
         expect(figure).toBe("Suite");
+    });
+});
+
+describe("Calculate sum", () => {
+    it("Should calculate points for Brelan", () => {
+        const rolls = [3, 3, 3, 4, 5];
+        const points = calculateRollPoints(rolls);
+        expect(points).toBe(28);
+    });
+    it("Should calculate points for Carré", () => {
+        const rolls = [3, 3, 3, 3, 5];
+        const points = calculateRollPoints(rolls);
+        expect(points).toBe(35);
+    });
+    it("Should calculate points for Full", () => {
+        const rolls = [3, 3, 3, 5, 5];
+        const points = calculateRollPoints(rolls);
+        expect(points).toBe(30);
+    });
+    it("Should calculate points for YAMS", () => {
+        const rolls = [3, 3, 3, 3, 3];
+        const points = calculateRollPoints(rolls);
+        expect(points).toBe(50);
+    });
+    it("Should calculate points for Suite", () => {
+        const rolls = [1, 2, 3, 4, 5];
+        const points = calculateRollPoints(rolls);
+        expect(points).toBe(40);
     });
 });
