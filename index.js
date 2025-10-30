@@ -34,6 +34,9 @@ export function findFigures(diceRolls) {
         }
     }
 
+    let hasBrelan = false;
+    let hasPair = false;
+
     numberCounts.forEach((numberCount) => {
         if (numberCount.count === 4) {
             figure = "Carré";
@@ -42,9 +45,21 @@ export function findFigures(diceRolls) {
 
     numberCounts.forEach((numberCount) => {
         if (numberCount.count === 3) {
-            figure = "Brelan";
+            hasBrelan = true;
         }
     });
+
+    numberCounts.forEach((numberCount) => {
+        if (numberCount.count === 2) {
+            hasPair = true;
+        }
+    });
+
+    if (hasBrelan && hasPair) {
+        figure = "Full";
+    } else if (hasBrelan) {
+        figure = "Brelan";
+    }
 
     return figure;
 }

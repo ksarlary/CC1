@@ -30,4 +30,9 @@ describe("Find figures", () => {
         const figure = findFigures(rolls);
         expect(figure).toBe("Carré");
     });
+    it("Should find a Full and return 'Full'", () => {
+        const rolls = [2, 2, 2, 5, 5];
+        const figure = findFigures(rolls);
+        expect(figure).toBe("Full");
+    });
 });
