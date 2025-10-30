@@ -51,6 +51,11 @@ describe("Find figures", () => {
         const figure = findFigures(rolls);
         expect(figure).toBe("Suite");
     });
+    it("Should find a Chance and return 'Chance'", () => {
+        const rolls = [1, 1, 3, 5, 6];
+        const figure = findFigures(rolls);
+        expect(figure).toBe("Chance");
+    });
 });
 
 describe("Calculate sum", () => {
@@ -78,5 +83,10 @@ describe("Calculate sum", () => {
         const rolls = [1, 2, 3, 4, 5];
         const points = calculateRollPoints(rolls);
         expect(points).toBe(40);
+    });
+    it("Should calculate points for Chance (sum of numbers)", () => {
+        const rolls = [1, 1, 3, 5, 6];
+        const points = calculateRollPoints(rolls);
+        expect(points).toBe(16);
     });
 });
